@@ -8,5 +8,5 @@ export const api = createApi({
   keepUnusedDataFor: 60,
   baseQuery: fetchBaseQuery({baseUrl: url}),
   endpoints: () => ({}),
-  tagTypes: ["Login", "Leads"],
+  tagTypes: ["Users"],
 });

@@ -7,14 +7,11 @@ const async = async (cb: () => Promise<void>) => {
     console.log({err});
 
     if (err.error) {
-      if (err.error.status === 400) {
-        toasterNotification("error", err.error.data.message);
-      } else {
-        toasterNotification(
-          "error",
-          "Something went wrong! Please try again later."
-        );
-      }
+      console.log(err.error.data.message);
+      toasterNotification(
+        "error",
+        "Something went wrong! Please try again later."
+      );
     } else {
       toasterNotification("error", "Something went wrong!");
     }

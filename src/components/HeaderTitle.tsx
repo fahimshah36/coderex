@@ -5,7 +5,7 @@ type Props = {title: string};
 
 const HeaderTitle = ({title}: Props) => {
   return (
-    <Card>
+    <Card style={{marginBottom: "1rem"}}>
       <Typography.Title underline>{title}</Typography.Title>
     </Card>
   );

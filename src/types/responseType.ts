@@ -1,5 +1,5 @@
 export interface HTTPResponse<T> {
   success: boolean;
-  data?: T;
+  users?: T;
   message?: string;
 }
