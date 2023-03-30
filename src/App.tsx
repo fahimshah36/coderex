@@ -1,7 +1,8 @@
 import "antd/dist/reset.css";
-import Layouts from "./pages/Layouts";
+import Layouts from "./components/Layouts";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {ConfigProvider} from "antd";
+import {ConfigProvider, theme} from "antd";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -10,13 +11,14 @@ function App() {
         token: {
           colorPrimary: "f15d43",
         },
+        algorithm: theme.darkAlgorithm,
       }}
     >
       <Router>
         <Routes>
-          <Route path="/" element={<Layouts />} />
-
-          {/* <Route path="/home" element={<Leads />}></Route> */}
+          <Route path="/" element={<Layouts />}>
+            <Route path="/" element={<Home />}></Route>
+          </Route>
         </Routes>
       </Router>
     </ConfigProvider>
