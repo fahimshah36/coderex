@@ -2,10 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Clone the repository:
+### `git clone https://github.com/fahimshah36/coderex.git`
 
 Install the dependencies:
-### `cd project-name`
+### `cd coderex`
 ### `npm install`
 
 In the project directory,Start the development server:
