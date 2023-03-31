@@ -2,7 +2,8 @@ import "antd/dist/reset.css";
 import Layouts from "./components/Layouts";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {ConfigProvider, theme} from "antd";
-import Home from "./pages/Home";
+import Users from "./pages/Users";
+import User from "./pages/User";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Layouts />}>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Users />}></Route>
+            <Route path="/user/:id" element={<User />}></Route>
           </Route>
         </Routes>
       </Router>

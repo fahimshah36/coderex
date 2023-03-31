@@ -5,16 +5,20 @@ import {usersUtils} from "../utils/usersUtils";
 
 type Props = {};
 
-const Home = (props: Props) => {
-  const {data} = useUsersQuery();
-  console.log(data?.users);
+const Users = (props: Props) => {
+  const {data, isLoading} = useUsersQuery();
 
   return (
     <div>
       <HeaderTitle title="Users" />
-      <Table dataSource={data?.users} columns={usersUtils()} />
+      <Table
+        dataSource={data?.users}
+        columns={usersUtils()}
+        rowKey={(e) => e.id}
+        loading={isLoading}
+      />
     </div>
   );
 };
 
-export default Home;
+export default Users;

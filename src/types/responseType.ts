@@ -1,5 +1,6 @@
-export interface HTTPResponse<T> {
-  success: boolean;
+export interface UsersHTTPResponse<T> {
   users?: T;
-  message?: string;
+}
+export interface UserHTTPResponse<T> {
+  posts?: T;
 }
