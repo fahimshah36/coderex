@@ -1,18 +1,23 @@
 import {StarOutlined} from "@ant-design/icons";
-import {Col, Image, List, Row, Space, Table, Typography} from "antd";
+import {Col, Image, List, Row, Space, Typography} from "antd";
 import React from "react";
 import {useParams} from "react-router-dom";
-import {useUserQuery} from "../api/userApi";
-import HeaderTitle from "../components/HeaderTitle";
-import {usersUtils} from "../utils/usersUtils";
+import {useUserQuery, useUsersQuery} from "../api/userApi";
+import {IUserDataType} from "../types/userTypes";
 
 type Props = {};
 
 const User = (props: Props) => {
   const {id} = useParams();
   const {data: userData, isLoading} = useUserQuery(Number(id));
+  const {data: usersData} = useUsersQuery();
 
-  console.log(userData?.posts);
+  //filtering all users data to get single user data using params
+  let filterUserData: IUserDataType;
+  filterUserData = usersData?.users?.filter(
+    (item) => item.id === Number(id)
+  )[0] as IUserDataType;
+  console.log(filterUserData);
 
   const IconText = ({icon, text}: {icon: React.FC; text: string}) => (
     <Space>
@@ -23,19 +28,25 @@ const User = (props: Props) => {
 
   return (
     <div>
-      <Row gutter={{xs: 8, sm: 16, md: 24, lg: 24}} justify="center">
+      <Row
+        gutter={{xs: 8, sm: 16, md: 24, lg: 24}}
+        justify="center"
+        align="middle"
+      >
         <Col span={6} xs={24} sm={24} md={24} lg={4}>
-          <Image />
+          <Image src={filterUserData.image} />
         </Col>
-        <Col span={6} xs={24} sm={24} md={24} lg={4}>
+        <Col span={6} xs={24} sm={24} md={24} lg={5}>
           <Row gutter={{xs: 8, sm: 16, md: 24, lg: 24}}>
-            <Typography.Title>name</Typography.Title>
+            <Typography.Title>{`${filterUserData.firstName} ${filterUserData.lastName}`}</Typography.Title>
           </Row>
           <Row gutter={{xs: 8, sm: 16, md: 24, lg: 24}}>
-            <Typography.Text>Lorem</Typography.Text>
+            <Typography.Text>Email: {filterUserData.email}</Typography.Text>
           </Row>
           <Row gutter={{xs: 8, sm: 16, md: 24, lg: 24}}>
-            <Typography.Text>Lorem2</Typography.Text>
+            <Typography.Text>
+              Company: {filterUserData.company.name}
+            </Typography.Text>
           </Row>
         </Col>
       </Row>

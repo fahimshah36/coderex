@@ -8,6 +8,7 @@ export interface IUserDataType {
   email: string;
   phone: string;
   company: ICompanyType;
+  image: string;
 }
 
 export interface IUserType {

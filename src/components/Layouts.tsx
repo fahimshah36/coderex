@@ -31,7 +31,7 @@ function Layouts() {
         <Layout style={{minHeight: "100vh"}}>
           <Sider breakpoint="lg" collapsedWidth="0">
             <Row justify={"center"} style={{marginBottom: "1rem"}}>
-              <Link to="/home">
+              <Link to="/">
                 <img
                   className="logo"
                   src={logo}
