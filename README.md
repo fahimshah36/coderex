@@ -5,8 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 Install the dependencies:
-### `cd project-name
-npm install`
+### `cd project-name`
+### `npm install`
 
 In the project directory,Start the development server:
 
